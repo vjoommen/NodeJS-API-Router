@@ -1,28 +1,6 @@
 /* GET Locations page */
 module.exports.homelist = function(req, res){
-	res.render('locations-list', {
-	 title: 'Location List',
-	 pageHeader: {
-	 	title: 'Loc8r',
-	 	strapline: 'Find places to work with wifi near you !!'
-	 },
-	 locations: [
-	 {
-	 	name: 'Starcups',
-	 	address: '125 High St, Reading, US',
-	 	rating: 3,
-	 	facilities: ['Hot drinks','Food','Wifi'],
-	 	distance: '100m'
-	 },
-	 {
-	 	name: 'Coffee Cups',
-	 	address: '323 Main St, Hihligf, US',
-	 	rating: 1,
-	 	facilities: ['Hot drinks','Drinks','Wifi'],
-	 	distance: '222m'
-	 }
-	 ] 
-	});	
+	renderHomepage(req, res);	
 };
 
 module.exports.locationInfo = function(req, res){
@@ -31,4 +9,15 @@ module.exports.locationInfo = function(req, res){
 
 module.exports.addReview = function(req, res){
 	res.render('location-review-form', { title: 'Add Review' });	
+};
+
+var renderHomepage = function(req, res, responseBody){
+  res.render('locations-list', {
+    title: 'Loc8r - find a place to work with wifi',
+    pageHeader: {
+      title: 'Loc8r',
+      strapline: 'Find places to work with wifi near you!'
+    },
+    sidebar: "Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Loc8r help you find the place you're looking for."
+   });
 };
